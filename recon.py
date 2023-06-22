@@ -9,20 +9,15 @@ name = str(sys.argv[1])
 ip = str(sys.argv[2])
 
 def dir():
-    os.system('mkdir '+name)
-    os.system('cd '+name)
-    os.system('mkdir nmap')
-    os.system('mkdir exploits')
-    os.system('mkdir doc')
-    os.system('mkdir enum')
-    scanyenum()
+    os.system('mkdir '+name+' && cd '+name)
+    os.system('mkdir nmap && mkdir exploits && mkdir doc && mkdir enum')
 
 def scanyenum():
     os.system('cd nmap')
     os.system('sudo nmap -sS -n -Pn -min-rate 5000 -p- --open -oX portscan'+ip)
     salida = subprocess.check_output("grep -oP '\d+(?=/open/tcp)' portscan | tr '\n' ',' | sed 's/,$//'", shell=True, text=True)
     openPorts = salida.strip()
-    os.system('sudo nmap -sV -sC -oN versionPorts -p'+openPorts+' '+ip)
+    os.system('sudo nmap -sV -sC -oN versionPorts -p '+openPorts+' '+ip)
     os.system('cd ..')
 
     os.system('cd enum')
