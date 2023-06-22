@@ -35,14 +35,14 @@ scanyenum() {
     elif [[ $openPorts == *'23'* ]]; then
         echo -e "\TelNet!"
         nmap -n -Pn -oN telnetScript --script "*telnet* and safe" -p 23 "$ip"
-    elif [[ $openPorts == *'25'* || $openPorts == *'465'* || $openPorts == *'587'*]]; then
+    elif [[ $openPorts == *'25'* || $openPorts == *'465'* || $openPorts == *'587'* ]]; then
         echo -e "\SMTP"
         nmap -p25,465,587 -oN smtpScript --script smtp-* "$ip"
         #Perform enumeration actions
     elif [[ $openPorts == *'53'* ]]; then
         echo -e "\DNS"
         nmap -n -oN dnsScript --script "(default and *dns*) or fcrdns or dns-srv-enum or dns-random-txid or dns-random-srcport" "$ip"
-    elif [[ $openPorts == *'137'* || $openPorts == *'138'* || $openPorts == *'139'*]]; then
+    elif [[ $openPorts == *'137'* || $openPorts == *'138'* || $openPorts == *'139'* ]]; then
         echo -e "\NetBios"
         nmblookup -A "$ip"
         nbtscan "$ip"/30
