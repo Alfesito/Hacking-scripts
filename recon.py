@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Librerias para ejecucion de comandos
 import sys
 import subprocess
@@ -14,6 +15,7 @@ def dir():
     os.system('mkdir exploits')
     os.system('mkdir doc')
     os.system('mkdir enum')
+    scanyenum()
 
 def scanyenum():
     os.system('cd nmap')
@@ -31,11 +33,13 @@ def scanyenum():
         os.system('ffuf -c -w /usr/share/wordlists/dirb/big.txt -o httpsEnum -u https://'+ip+'/FUZZ')
         os.system('whatweb http://'+ip+ '>> httpsEnum')
 
+    os.system('cd ..')
+
 if sys.argv[1]=='help':
     print("\nEste archivo debe ser ejecutado como root")
     print("\nEl primer parámetro debe ser el nombre del CTF")
     print("\nEl segundo parámetro debe ser el IP de la maquina victima")
 elif sys.argv[1] and sys.argv[2]:
-    scanyenum()
+    dir()
 else:
     print("\nAlgo no ha salido bien")
