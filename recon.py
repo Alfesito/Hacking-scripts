@@ -5,11 +5,11 @@ import subprocess
 from subprocess import STDOUT
 import os
 
-name = str(sys.argv[1])
-ip = str(sys.argv[2])
+# name = str(sys.argv[1])
+ip = str(sys.argv[1])
 
 def dir():
-    os.system('mkdir '+name+' && cd '+name)
+    # os.system('mkdir '+name+' && cd '+name)
     os.system('mkdir nmap && mkdir exploits && mkdir doc && mkdir enum')
 
 def scanyenum():
@@ -29,12 +29,14 @@ def scanyenum():
         os.system('whatweb http://'+ip+ '>> httpsEnum')
 
     os.system('cd ..')
+    print("\nFIN!")
+
 
 if sys.argv[1]=='help':
     print("\nEste archivo debe ser ejecutado como root")
     print("\nEl primer parámetro debe ser el nombre del CTF")
     print("\nEl segundo parámetro debe ser el IP de la maquina victima")
-elif sys.argv[1] and sys.argv[2]:
+elif sys.argv[1]:
     dir()
 else:
     print("\nAlgo no ha salido bien")
