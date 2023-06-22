@@ -1,4 +1,0 @@
-# Nmap 7.93 scan initiated Thu Jun 22 10:36:44 2023 as: nmap -sS -n -Pn -min-rate 5000 -p- --open -oG portscan 192.168.1.70
-Host: 192.168.1.70 ()	Status: Up
-Host: 192.168.1.70 ()	Ports: 80/open/tcp//http///, 443/open/tcp//https///, 631/open/tcp//ipp///, 3910/open/tcp//prnrequest///, 3911/open/tcp//prnstatus///, 5355/open/tcp//llmnr///, 8080/open/tcp//http-proxy///, 9100/open/tcp//jetdirect///, 53048/open/tcp/////
-# Nmap done at Thu Jun 22 10:37:00 2023 -- 1 IP address (1 host up) scanned in 15.98 seconds
