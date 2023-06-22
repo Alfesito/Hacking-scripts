@@ -5,12 +5,12 @@ ip=$2
 
 dir() {
     mkdir "$name" && cd "$name"
-    mkdir nmap && mkdir exploits && mkdir doc && mkdir enum
+    mkdir scan && mkdir exploits && mkdir doc && mkdir enum
     scanyenum
 }
 
 scanyenum() {
-    cd nmap
+    cd scan
     sudo nmap -sS -n -Pn -min-rate 5000 -p- --open -oG portscan "$ip"
     openPorts=$(grep -oP '\d+(?=/open/tcp)' portscan | tr '\n' ',' | sed 's/,$//')
     sudo nmap -sV -sC -oN versionPorts -p"$openPorts" "$ip"
