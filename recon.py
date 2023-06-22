@@ -11,6 +11,7 @@ ip = str(sys.argv[1])
 def dir():
     # os.system('mkdir '+name+' && cd '+name)
     os.system('mkdir nmap && mkdir exploits && mkdir doc && mkdir enum')
+    scanyenum()
 
 def scanyenum():
     os.system('cd nmap')
