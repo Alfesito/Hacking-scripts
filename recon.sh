@@ -9,7 +9,7 @@ dir() {
 
 scanyenum() {
     cd nmap
-    sudo nmap -sS -n -Pn -min-rate 5000 -p- --open -oX portscan"$ip"
+    sudo nmap -sS -n -Pn -min-rate 5000 -p- --open -oX portscan "$ip"
     openPorts=$(grep -oP '\d+(?=/open/tcp)' portscan | tr '\n' ',' | sed 's/,$//')
     sudo nmap -sV -sC -oN versionPorts -p "$openPorts" "$ip"
 
