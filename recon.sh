@@ -92,7 +92,7 @@ scanyenum() {
     echo -e "\nSe ha terminado el reconocimiento:) Buena suerte para encontrar vuln!!"
 }
 
-if [[ $1 == 'help' ]]; then
+if [[ $1 == 'help' && $2 == "" ]]; then
     echo -e "\nEste archivo debe ser ejecutado como root"
     echo -e "\nEl primer parámetro debe ser el nombre del CTF"
     echo -e "\nEl segundo parámetro debe ser el IP de la maquina victima"
@@ -101,4 +101,6 @@ elif [[ $1 ]]; then
 
 else
     echo -e "\nAlgo no ha salido bien"
+    echo -e "\nEl primer parámetro debe ser el nombre del CTF"
+    echo -e "\nEl segundo parámetro debe ser el IP de la maquina victima"
 fi
