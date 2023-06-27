@@ -62,7 +62,7 @@ scanPorts() {
     echo -e "\nRealizando escaneo de puertos..."
     sudo nmap -sS -n -Pn -min-rate 5000 -p- --open -oG scan/portscan "$targetIP"
     openPorts=$(grep -oP '\d+(?=/open/tcp)' scan/portscan | tr '\n' ',' | sed 's/,$//')
-    sudo nmap -sV -sC -oN scan/versionPorts -p"$openPorts" "$targetIP"
+    sudo nmap -sV -sC -oN scan/versionPorts -p "$openPorts" "$targetIP"
 }
 
 enumPorts() {
