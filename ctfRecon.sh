@@ -62,6 +62,12 @@ scanPorts() {
     echo -e "\nRealizando escaneo de puertos..."
     sudo nmap -sS -n -Pn -min-rate 5000 -p- --open -oG scan/portscan "$targetIP"
     openPorts=$(grep -oP '\d+(?=/open/tcp)' scan/portscan | tr '\n' ',' | sed 's/,$//')
+
+    if [ -z "$openPorts" ]; then
+        echo -e "\nNo se encontraron puertos abiertos para la IP objetivo."
+        exit 0
+    fi
+
     sudo nmap -sV -sC -oN scan/versionPorts -p T:"$openPorts" "$targetIP"
 }
 
